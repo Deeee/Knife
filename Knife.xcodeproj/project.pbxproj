@@ -16,6 +16,7 @@
 		5B241FD51AAAB5EA006039B1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B241FD41AAAB5EA006039B1 /* Images.xcassets */; };
 		5B241FD81AAAB5EA006039B1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B241FD61AAAB5EA006039B1 /* LaunchScreen.xib */; };
 		5B241FE41AAAB5EA006039B1 /* KnifeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B241FE31AAAB5EA006039B1 /* KnifeTests.m */; };
+		5B241FEE1AAB8790006039B1 /* hand.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5B241FED1AAB8790006039B1 /* hand.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		5B241FDD1AAAB5EA006039B1 /* KnifeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnifeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B241FE21AAAB5EA006039B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B241FE31AAAB5EA006039B1 /* KnifeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KnifeTests.m; sourceTree = "<group>"; };
+		5B241FED1AAB8790006039B1 /* hand.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hand.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				5B241FCE1AAAB5EA006039B1 /* GameViewController.h */,
 				5B241FCF1AAAB5EA006039B1 /* GameViewController.m */,
 				5B241FD11AAAB5EA006039B1 /* Main.storyboard */,
+				5B241FED1AAB8790006039B1 /* hand.jpg */,
 				5B241FD41AAAB5EA006039B1 /* Images.xcassets */,
 				5B241FD61AAAB5EA006039B1 /* LaunchScreen.xib */,
 				5B241FC21AAAB5EA006039B1 /* Supporting Files */,
@@ -211,6 +214,7 @@
 				5B241FD51AAAB5EA006039B1 /* Images.xcassets in Resources */,
 				5B241FCD1AAAB5EA006039B1 /* GameScene.sks in Resources */,
 				5B241FD31AAAB5EA006039B1 /* Main.storyboard in Resources */,
+				5B241FEE1AAB8790006039B1 /* hand.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

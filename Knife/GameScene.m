@@ -9,7 +9,7 @@
 #import "GameScene.h"
 
 @interface GameScene () {
-    SKSpriteNode* _bird;
+    SKSpriteNode* _hand;
 }
 @end
 
@@ -17,34 +17,37 @@
 
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
-    SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    SKTexture* handTexture = [SKTexture textureWithImageNamed:@"hand.jpg"];
+    handTexture.filteringMode = SKTextureFilteringNearest;
     
-    myLabel.text = @"Hello, World!";
-    myLabel.fontSize = 65;
-    myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-                                   CGRectGetMidY(self.frame));
+    _hand = [SKSpriteNode spriteNodeWithTexture:handTexture];
+    [_hand setScale:1.0];
+    _hand.position = CGPointMake(self.frame.size.width / 4 + 200, CGRectGetMidY(self.frame));
     
-    [self addChild:myLabel];
+    
+    [self addChild:_hand];
+}
+
+-(id)initWithSize:(CGSize)size {
+    if (self = [super initWithSize:size]) {
+        /* Setup your scene here */
+        
+        SKTexture* handTexture = [SKTexture textureWithImageNamed:@"hand.jpg"];
+        handTexture.filteringMode = SKTextureFilteringNearest;
+        
+        _hand = [SKSpriteNode spriteNodeWithTexture:handTexture];
+        [_hand setScale:2.0];
+        _hand.position = CGPointMake(self.frame.size.width / 4, CGRectGetMidY(self.frame));
+        
+        [self addChild:_hand];
+    }
+    return self;
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
     
-    for (UITouch *touch in touches) {
-        CGPoint location = [touch locationInNode:self];
-        
-        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-        
-        sprite.xScale = 0.5;
-        sprite.yScale = 0.5;
-        sprite.position = location;
-        
-        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-        
-        [sprite runAction:[SKAction repeatActionForever:action]];
-        
-        [self addChild:sprite];
-    }
+
 }
 
 -(void)update:(CFTimeInterval)currentTime {
