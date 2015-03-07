@@ -18,6 +18,7 @@
 		5B241FE41AAAB5EA006039B1 /* KnifeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B241FE31AAAB5EA006039B1 /* KnifeTests.m */; };
 		5B241FEE1AAB8790006039B1 /* hand.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5B241FED1AAB8790006039B1 /* hand.jpg */; };
 		5B241FF01AAB8B2A006039B1 /* knife.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B241FEF1AAB8B2A006039B1 /* knife.png */; };
+		5B241FF21AAB8EA3006039B1 /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B241FF11AAB8EA3006039B1 /* ground.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		5B241FE31AAAB5EA006039B1 /* KnifeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KnifeTests.m; sourceTree = "<group>"; };
 		5B241FED1AAB8790006039B1 /* hand.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hand.jpg; sourceTree = "<group>"; };
 		5B241FEF1AAB8B2A006039B1 /* knife.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = knife.png; sourceTree = "<group>"; };
+		5B241FF11AAB8EA3006039B1 /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				5B241FCE1AAAB5EA006039B1 /* GameViewController.h */,
 				5B241FCF1AAAB5EA006039B1 /* GameViewController.m */,
 				5B241FD11AAAB5EA006039B1 /* Main.storyboard */,
+				5B241FF11AAB8EA3006039B1 /* ground.png */,
 				5B241FEF1AAB8B2A006039B1 /* knife.png */,
 				5B241FED1AAB8790006039B1 /* hand.jpg */,
 				5B241FD41AAAB5EA006039B1 /* Images.xcassets */,
@@ -213,6 +216,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B241FF21AAB8EA3006039B1 /* ground.png in Resources */,
 				5B241FD81AAAB5EA006039B1 /* LaunchScreen.xib in Resources */,
 				5B241FD51AAAB5EA006039B1 /* Images.xcassets in Resources */,
 				5B241FF01AAB8B2A006039B1 /* knife.png in Resources */,
