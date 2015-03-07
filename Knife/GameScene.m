@@ -8,7 +8,7 @@
 
 #import "GameScene.h"
 
-@interface MyScene () {
+@interface GameScene () {
     SKSpriteNode* _bird;
 }
 @end
