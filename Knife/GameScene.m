@@ -12,6 +12,7 @@
     SKSpriteNode* _hand;
     SKSpriteNode* _knife;
     SKColor* _skyColor;
+    CGPoint originLoc;
 }
 @end
 
@@ -85,11 +86,19 @@
     CGPoint location = [[touches anyObject] locationInNode:self];
     location.x = location.x + _knife.size.width/2;
     location.y = location.y - _knife.size.height/2;
-    SKAction *move = [SKAction moveTo:location duration:0.2f];
+    originLoc = _knife.position;
+    CGPoint loc = CGPointMake(originLoc.x - 100, originLoc.y);
+    SKAction *move = [SKAction moveTo:loc duration:0.2f];
     [_knife runAction:move];
 
+//    _knife.position = originLoc;
 }
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    /* Called when a touch begins */
+    SKAction *moveBack = [SKAction moveTo:originLoc duration:0.2f];
+    [_knife runAction:moveBack];
 
+}
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
 }
