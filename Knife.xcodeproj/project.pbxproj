@@ -21,6 +21,8 @@
 		5B241FF21AAB8EA3006039B1 /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B241FF11AAB8EA3006039B1 /* ground.png */; };
 		9872539D1AABD0C500007DA9 /* hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 9872539C1AABD0C500007DA9 /* hand.png */; };
 		9872539F1AABD32200007DA9 /* hand2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9872539E1AABD32200007DA9 /* hand2.png */; };
+		987253A11AABD4FD00007DA9 /* hand3.png in Resources */ = {isa = PBXBuildFile; fileRef = 987253A01AABD4FD00007DA9 /* hand3.png */; };
+		987253A51AABFBDC00007DA9 /* knife1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 987253A41AABFBDC00007DA9 /* knife1.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		5B241FF11AAB8EA3006039B1 /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.png; sourceTree = "<group>"; };
 		9872539C1AABD0C500007DA9 /* hand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hand.png; sourceTree = "<group>"; };
 		9872539E1AABD32200007DA9 /* hand2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hand2.png; sourceTree = "<group>"; };
+		987253A01AABD4FD00007DA9 /* hand3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hand3.png; sourceTree = "<group>"; };
+		987253A41AABFBDC00007DA9 /* knife1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = knife1.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				5B241FD11AAAB5EA006039B1 /* Main.storyboard */,
 				9872539C1AABD0C500007DA9 /* hand.png */,
 				9872539E1AABD32200007DA9 /* hand2.png */,
+				987253A01AABD4FD00007DA9 /* hand3.png */,
+				987253A41AABFBDC00007DA9 /* knife1.jpg */,
 				5B241FF11AAB8EA3006039B1 /* ground.png */,
 				5B241FEF1AAB8B2A006039B1 /* knife.png */,
 				5B241FED1AAB8790006039B1 /* hand.jpg */,
@@ -230,7 +236,9 @@
 				5B241FD31AAAB5EA006039B1 /* Main.storyboard in Resources */,
 				9872539D1AABD0C500007DA9 /* hand.png in Resources */,
 				5B241FEE1AAB8790006039B1 /* hand.jpg in Resources */,
+				987253A11AABD4FD00007DA9 /* hand3.png in Resources */,
 				9872539F1AABD32200007DA9 /* hand2.png in Resources */,
+				987253A51AABFBDC00007DA9 /* knife1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

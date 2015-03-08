@@ -21,7 +21,7 @@
 -(void)didMoveToView:(SKView *)view {
 //    self.physicsWorld.gravity = CGVectorMake( 0.0, -5.0 );
     /* Setup your scene here */
-    SKTexture* handTexture = [SKTexture textureWithImageNamed:@"hand2.png"];
+    SKTexture* handTexture = [SKTexture textureWithImageNamed:@"hand3.png"];
     handTexture.filteringMode = SKTextureFilteringNearest;
     SKTexture* groundTexture = [SKTexture textureWithImageNamed:@"ground.png"];
     groundTexture.filteringMode = SKTextureFilteringNearest;
@@ -30,7 +30,7 @@
     SKAction* resetGroundSprite = [SKAction moveByX:groundTexture.size.width*2 y:0 duration:0];
     SKAction* moveGroundSpritesForever = [SKAction repeatActionForever:[SKAction sequence:@[moveGroundSprite, resetGroundSprite]]];
     
-    SKTexture* knifeTexture = [SKTexture textureWithImageNamed:@"knife.png"];
+    SKTexture* knifeTexture = [SKTexture textureWithImageNamed:@"knife1.jpg"];
     _knife = [SKSpriteNode spriteNodeWithTexture:knifeTexture];
     [_knife setScale:0.5];
     _knife.position = CGPointMake(self.frame.size.width / 4 + 400, CGRectGetMidY(self.frame));
@@ -41,7 +41,7 @@
     
     _hand = [SKSpriteNode spriteNodeWithTexture:handTexture];
     [_hand setScale:1.0];
-    _hand.position = CGPointMake(self.frame.size.width / 3.29 + 200, self.frame.size.height / 200 - 350);
+    _hand.position = CGPointMake(self.frame.size.width / 3.29 + 200, self.frame.size.height / 200 + 250);
     _skyColor = [SKColor colorWithRed:113.0/255.0 green:197.0/255.0 blue:207.0/255.0 alpha:1.0];
     [self setBackgroundColor:_skyColor];
     
@@ -82,8 +82,8 @@
 }
 
 -(void)rotatingHand {
-    SKAction *rotatM2L = [SKAction rotateToAngle:0.25 duration:1];
-    SKAction *rotatL2R = [SKAction rotateToAngle:-0.25 duration:2];
+    SKAction *rotatM2L = [SKAction rotateToAngle:0.5 duration:1];
+    SKAction *rotatL2R = [SKAction rotateToAngle:-0.5 duration:2];
 //    SKAction *rotatM2R = [SKAction rotateToAngle:0.5 duration:1];
     SKAction *rotatR2M = [SKAction rotateToAngle:0.0 duration:1];
     
