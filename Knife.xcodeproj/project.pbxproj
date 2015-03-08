@@ -20,6 +20,7 @@
 		5B241FF01AAB8B2A006039B1 /* knife.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B241FEF1AAB8B2A006039B1 /* knife.png */; };
 		5B241FF21AAB8EA3006039B1 /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B241FF11AAB8EA3006039B1 /* ground.png */; };
 		9872539D1AABD0C500007DA9 /* hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 9872539C1AABD0C500007DA9 /* hand.png */; };
+		9872539F1AABD32200007DA9 /* hand2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9872539E1AABD32200007DA9 /* hand2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		5B241FEF1AAB8B2A006039B1 /* knife.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = knife.png; sourceTree = "<group>"; };
 		5B241FF11AAB8EA3006039B1 /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.png; sourceTree = "<group>"; };
 		9872539C1AABD0C500007DA9 /* hand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hand.png; sourceTree = "<group>"; };
+		9872539E1AABD32200007DA9 /* hand2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hand2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				5B241FCF1AAAB5EA006039B1 /* GameViewController.m */,
 				5B241FD11AAAB5EA006039B1 /* Main.storyboard */,
 				9872539C1AABD0C500007DA9 /* hand.png */,
+				9872539E1AABD32200007DA9 /* hand2.png */,
 				5B241FF11AAB8EA3006039B1 /* ground.png */,
 				5B241FEF1AAB8B2A006039B1 /* knife.png */,
 				5B241FED1AAB8790006039B1 /* hand.jpg */,
@@ -227,6 +230,7 @@
 				5B241FD31AAAB5EA006039B1 /* Main.storyboard in Resources */,
 				9872539D1AABD0C500007DA9 /* hand.png in Resources */,
 				5B241FEE1AAB8790006039B1 /* hand.jpg in Resources */,
+				9872539F1AABD32200007DA9 /* hand2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
