@@ -104,7 +104,12 @@
     SKAction *move = [SKAction moveTo:location duration:0.2f];
     [_knife runAction:move];
 
+//    _knife.position = originLoc;
 }
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    /* Called when a touch begins */
+    SKAction *moveBack = [SKAction moveTo:originLoc duration:0.2f];
+    [_knife runAction:moveBack];
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     SKAction *moveBack = [SKAction moveTo:originLoc duration:0.2f];
