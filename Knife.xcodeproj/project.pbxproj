@@ -19,6 +19,7 @@
 		5B241FEE1AAB8790006039B1 /* hand.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5B241FED1AAB8790006039B1 /* hand.jpg */; };
 		5B241FF01AAB8B2A006039B1 /* knife.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B241FEF1AAB8B2A006039B1 /* knife.png */; };
 		5B241FF21AAB8EA3006039B1 /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B241FF11AAB8EA3006039B1 /* ground.png */; };
+		9872539D1AABD0C500007DA9 /* hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 9872539C1AABD0C500007DA9 /* hand.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		5B241FED1AAB8790006039B1 /* hand.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hand.jpg; sourceTree = "<group>"; };
 		5B241FEF1AAB8B2A006039B1 /* knife.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = knife.png; sourceTree = "<group>"; };
 		5B241FF11AAB8EA3006039B1 /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.png; sourceTree = "<group>"; };
+		9872539C1AABD0C500007DA9 /* hand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hand.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				5B241FCE1AAAB5EA006039B1 /* GameViewController.h */,
 				5B241FCF1AAAB5EA006039B1 /* GameViewController.m */,
 				5B241FD11AAAB5EA006039B1 /* Main.storyboard */,
+				9872539C1AABD0C500007DA9 /* hand.png */,
 				5B241FF11AAB8EA3006039B1 /* ground.png */,
 				5B241FEF1AAB8B2A006039B1 /* knife.png */,
 				5B241FED1AAB8790006039B1 /* hand.jpg */,
@@ -222,6 +225,7 @@
 				5B241FF01AAB8B2A006039B1 /* knife.png in Resources */,
 				5B241FCD1AAAB5EA006039B1 /* GameScene.sks in Resources */,
 				5B241FD31AAAB5EA006039B1 /* Main.storyboard in Resources */,
+				9872539D1AABD0C500007DA9 /* hand.png in Resources */,
 				5B241FEE1AAB8790006039B1 /* hand.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,6 +440,7 @@
 				5B241FE91AAAB5EA006039B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5B241FEA1AAAB5EA006039B1 /* Build configuration list for PBXNativeTarget "KnifeTests" */ = {
 			isa = XCConfigurationList;
@@ -444,6 +449,7 @@
 				5B241FEC1AAAB5EA006039B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -21,7 +21,7 @@
 -(void)didMoveToView:(SKView *)view {
 //    self.physicsWorld.gravity = CGVectorMake( 0.0, -5.0 );
     /* Setup your scene here */
-    SKTexture* handTexture = [SKTexture textureWithImageNamed:@"hand.jpg"];
+    SKTexture* handTexture = [SKTexture textureWithImageNamed:@"hand.png"];
     handTexture.filteringMode = SKTextureFilteringNearest;
     SKTexture* groundTexture = [SKTexture textureWithImageNamed:@"ground.png"];
     groundTexture.filteringMode = SKTextureFilteringNearest;
@@ -40,7 +40,7 @@
     
     
     _hand = [SKSpriteNode spriteNodeWithTexture:handTexture];
-    [_hand setScale:0.7];
+    [_hand setScale:1.0];
     _hand.position = CGPointMake(self.frame.size.width / 3.29 + 200, CGRectGetMidY(self.frame));
     _skyColor = [SKColor colorWithRed:113.0/255.0 green:197.0/255.0 blue:207.0/255.0 alpha:1.0];
     [self setBackgroundColor:_skyColor];
@@ -101,17 +101,13 @@
     location.y = location.y - _knife.size.height/2;
     originLoc = _knife.position;
     CGPoint loc = CGPointMake(originLoc.x - 100, originLoc.y);
-    SKAction *move = [SKAction moveTo:location duration:0.2f];
+    SKAction *move = [SKAction moveTo:loc duration:0.2f];
     [_knife runAction:move];
 
 //    _knife.position = originLoc;
 }
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
-    SKAction *moveBack = [SKAction moveTo:originLoc duration:0.2f];
-    [_knife runAction:moveBack];
-
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     SKAction *moveBack = [SKAction moveTo:originLoc duration:0.2f];
     [_knife runAction:moveBack];
 }
@@ -121,3 +117,4 @@
 }
 
 @end
+
