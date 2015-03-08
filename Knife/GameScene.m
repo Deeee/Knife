@@ -30,7 +30,7 @@
     SKAction* resetGroundSprite = [SKAction moveByX:groundTexture.size.width*2 y:0 duration:0];
     SKAction* moveGroundSpritesForever = [SKAction repeatActionForever:[SKAction sequence:@[moveGroundSprite, resetGroundSprite]]];
     
-    SKTexture* knifeTexture = [SKTexture textureWithImageNamed:@"knife1.jpg"];
+    SKTexture* knifeTexture = [SKTexture textureWithImageNamed:@"knife.png"];
     _knife = [SKSpriteNode spriteNodeWithTexture:knifeTexture];
     [_knife setScale:0.5];
     _knife.position = CGPointMake(self.frame.size.width / 4 + 400, CGRectGetMidY(self.frame));
@@ -102,15 +102,26 @@
     originLoc = _knife.position;
     CGPoint loc = CGPointMake(originLoc.x - 100, originLoc.y);
     SKAction *move = [SKAction moveTo:loc duration:0.2f];
-    [_knife runAction:move];
+    SKAction *moveback = [SKAction moveTo:originLoc duration:0.2f];
+    SKAction *action = [SKAction sequence:@[move, moveback]];
+    
+    [_knife runAction:action completion:^{
+       // [self runAction:moveback];
+        [self setUserInteractionEnabled:NO];
+        if(CGPointEqualToPoint(_knife.position, originLoc))
+        {
+            [self setUserInteractionEnabled:YES];
+        }
+    }];;
+   // [_knife runAction:moveback];
 
 //    _knife.position = originLoc;
 }
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+//-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
-    SKAction *moveBack = [SKAction moveTo:originLoc duration:0.2f];
-    [_knife runAction:moveBack];
-}
+  //  SKAction *moveBack = [SKAction moveTo:originLoc duration:0.2f];
+   // [_knife runAction:moveBack];
+//}
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
