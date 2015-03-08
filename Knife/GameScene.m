@@ -12,6 +12,7 @@
     SKSpriteNode* _hand;
     SKSpriteNode* _knife;
     SKColor* _skyColor;
+    CGPoint originLoc;
 }
 @end
 
@@ -39,8 +40,8 @@
     
     
     _hand = [SKSpriteNode spriteNodeWithTexture:handTexture];
-    [_hand setScale:1.0];
-    _hand.position = CGPointMake(self.frame.size.width / 4 + 200, CGRectGetMidY(self.frame));
+    [_hand setScale:0.7];
+    _hand.position = CGPointMake(self.frame.size.width / 3.29 + 200, CGRectGetMidY(self.frame));
     _skyColor = [SKColor colorWithRed:113.0/255.0 green:197.0/255.0 blue:207.0/255.0 alpha:1.0];
     [self setBackgroundColor:_skyColor];
     
@@ -60,7 +61,7 @@
     [self addChild:_hand];
     [self addChild:_knife];
     [self addChild:dummy];
-
+    [self rotatingHand];
     }
 
 -(id)initWithSize:(CGSize)size {
@@ -80,14 +81,34 @@
     return self;
 }
 
+-(void)rotatingHand {
+    SKAction *rotatM2L = [SKAction rotateToAngle:0.5 duration:1];
+    SKAction *rotatL2R = [SKAction rotateToAngle:-0.5 duration:2];
+//    SKAction *rotatM2R = [SKAction rotateToAngle:0.5 duration:1];
+    SKAction *rotatR2M = [SKAction rotateToAngle:0.0 duration:1];
+    
+    SKAction *rotateSeq = [SKAction sequence:@[rotatM2L, rotatL2R, rotatR2M]];
+    
+    [_hand runAction:[SKAction repeatActionForever:
+                      rotateSeq] withKey:@"rotatingHand"];
+    return;
+}
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
     CGPoint location = [[touches anyObject] locationInNode:self];
     location.x = location.x + _knife.size.width/2;
     location.y = location.y - _knife.size.height/2;
+    originLoc = _knife.position;
+    CGPoint loc = CGPointMake(originLoc.x - 100, originLoc.y);
     SKAction *move = [SKAction moveTo:location duration:0.2f];
     [_knife runAction:move];
 
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    SKAction *moveBack = [SKAction moveTo:originLoc duration:0.2f];
+    [_knife runAction:moveBack];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
