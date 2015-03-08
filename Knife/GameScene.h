@@ -8,9 +8,5 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface GameScene : SKScene
-static const int handHitCategory = 1;
-static const int knifeHitCategory = 2;
-
-
+@interface GameScene : SKScene<SKPhysicsContactDelegate>
 @end
