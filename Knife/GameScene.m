@@ -12,12 +12,11 @@
     SKSpriteNode* _hand;
     SKSpriteNode* _knife;
     SKColor* _skyColor;
-    CGPoint originLoc;
     int handHitCategory;
     int knifeHitCategory;
     SKShapeNode *point;
-    CGPoint loc;
     BOOL isTouched;
+    CGPoint location;
 }
 @end
 
@@ -26,6 +25,12 @@
 -(void)didMoveToView:(SKView *)view {
 //    self.physicsWorld.gravity = CGVectorMake( 0.0, -5.0 );
     /* Setup your scene here */
+    self.physicsWorld.gravity = CGVectorMake( 0.0, 0 );
+    handHitCategory = 1;
+    knifeHitCategory = 2;
+    isTouched = NO;
+    self.physicsWorld.contactDelegate = self;
+
     SKTexture* handTexture = [SKTexture textureWithImageNamed:@"final_hand.png"];
     handTexture.filteringMode = SKTextureFilteringNearest;
     SKTexture* groundTexture = [SKTexture textureWithImageNamed:@"final_background.png"];
@@ -38,15 +43,28 @@
     SKTexture* knifeTexture = [SKTexture textureWithImageNamed:@"knife2.png"];
     _knife = [SKSpriteNode spriteNodeWithTexture:knifeTexture];
     [_knife setScale:0.23];
-    _knife.position = CGPointMake(self.frame.size.width / 4 + 400, self.frame.size.height / 200 + 730);
+    _knife.position = CGPointMake(self.frame.size.width / 4 + 400, self.frame.size.height / 200 + 700);
 //    _knife.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:_knife.size.height/2];
-//    _knife.physicsBody.dynamic = YES;
-//    _knife.physicsBody.allowsRotation = NO;
+    _knife.physicsBody = [SKPhysicsBody bodyWithTexture:_knife.texture size:_knife.size];
+    _knife.physicsBody.dynamic = NO;
+    _knife.physicsBody.allowsRotation = NO;
+    
+    _knife.physicsBody.categoryBitMask = knifeHitCategory;
+    _knife.physicsBody.contactTestBitMask = handHitCategory;
+    _knife.physicsBody.collisionBitMask = handHitCategory;
     
     
     _hand = [SKSpriteNode spriteNodeWithTexture:handTexture];
     [_hand setScale:0.7];
-    _hand.position = CGPointMake(self.frame.size.width / 3.29 + 200, self.frame.size.height / 200 + 250);
+    _hand.position = CGPointMake(self.frame.size.width / 4 + 280 , self.frame.size.height / 200 + 210);
+    _hand.physicsBody = [SKPhysicsBody bodyWithTexture:_hand.texture size:_hand.size];
+    
+    _hand.physicsBody.categoryBitMask = handHitCategory;
+    _hand.physicsBody.contactTestBitMask = knifeHitCategory;
+    _hand.physicsBody.collisionBitMask = knifeHitCategory;
+    
+//    _skyColor = [SKColor colorWithRed:113.0/255.0 green:197.0/255.0 blue:207.0/255.0 alpha:1.0];
+//    [self setBackgroundColor:_skyColor];
     
     SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:groundTexture];
     [sprite setScale:0.45];
@@ -66,13 +84,14 @@
 //        [self addChild:sprite];
 //    }
     
-    SKNode* dummy = [SKNode node];
-    dummy.position = CGPointMake(0, groundTexture.size.height);
-    dummy.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(self.frame.size.width, groundTexture.size.height * 2)];
-    dummy.physicsBody.dynamic = NO;
+//    SKNode* dummy = [SKNode node];
+//    dummy.position = CGPointMake(0, groundTexture.size.height);
+//    dummy.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(self.frame.size.width, groundTexture.size.height * 2)];
+//    dummy.physicsBody.dynamic = NO;
+    
     [self addChild:_hand];
     [self addChild:_knife];
-    [self addChild:dummy];
+    //    [self addChild:dummy];
     [self rotatingHand];
     }
 
@@ -89,13 +108,14 @@
         _skyColor = [SKColor colorWithRed:113.0/255.0 green:197.0/255.0 blue:207.0/255.0 alpha:1.0];
         [self setBackgroundColor:_skyColor];
         [self addChild:_hand];
+        self.physicsWorld.contactDelegate = self;
     }
     return self;
 }
 
 -(void)rotatingHand {
-    SKAction *rotatM2L = [SKAction rotateToAngle:0.58 duration:SKActionTimingEaseIn];
-    SKAction *rotatL2R = [SKAction rotateToAngle:-0.66 duration:SKActionTimingEaseIn];
+    SKAction *rotatM2L = [SKAction rotateToAngle:0.56 duration:SKActionTimingEaseIn];
+    SKAction *rotatL2R = [SKAction rotateToAngle:-0.72 duration:SKActionTimingEaseIn];
     SKAction *rotatR2M = [SKAction rotateToAngle:0.0 duration:SKActionTimingEaseIn];
     
     SKAction *rotateSeq = [SKAction sequence:@[rotatM2L, rotatL2R, rotatR2M]];
@@ -111,11 +131,12 @@
     [self setUserInteractionEnabled: NO];
     [point removeFromParent];
     /* Called when a touch begins */
-    CGPoint location = [[touches anyObject] locationInNode:self];
-    location.x = location.x + _knife.size.width/2;
-    location.y = location.y - _knife.size.height/2;
-    SKAction *move = [SKAction moveTo:loc duration:0.2f];
-    SKAction *moveback = [SKAction moveTo:originLoc duration:0.2f];
+    location = [[touches anyObject] locationInNode:self];
+    CGPoint originLoc = _knife.position;
+    location.x = originLoc.x - 20;
+    location.y = originLoc.y - 20;
+    SKAction *move = [SKAction moveTo:location duration:0.1f];
+    SKAction *moveback = [SKAction moveTo:originLoc duration:0.1f];
     SKAction *action = [SKAction sequence:@[move, moveback]];
     
     [_knife runAction:action completion:^(void){
@@ -130,27 +151,35 @@
    // [_knife runAction:moveback];
 
 //    _knife.position = originLoc;
+
 }
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     isTouched = NO;
 }
+
+//-(Boolean)hitFingers {
+//    location.x
+//}
+
 -(void)didBeginContact:(SKPhysicsContact *)contact
 {
-    SKPhysicsBody *firstBody, *secondBody;
+    int firstBody, secondBody;
     point = [SKShapeNode shapeNodeWithCircleOfRadius:10];
     [point setName:@"point"];
     [point setFillColor:[UIColor redColor]];
     [point setPosition:contact.contactPoint];
     [self addChild:point];
-    firstBody = contact.bodyA;
-    secondBody = contact.bodyB;
+
+    firstBody = contact.bodyA.categoryBitMask;
+    secondBody = contact.bodyB.categoryBitMask;
     
-    if(isTouched == YES && firstBody.categoryBitMask == knifeHitCategory && secondBody.categoryBitMask == handHitCategory)
-    {
-        
-        NSLog(@"balloon hit the spikes");
-        //setup your methods and other things here
-        
+    if (isTouched == YES) {
+        if((((firstBody & handHitCategory) != 0) &&((secondBody & knifeHitCategory) != 0)) || (((firstBody & knifeHitCategory) != 0) && ((secondBody & handHitCategory) != 0)))
+        {
+            NSLog(@"balloon hit the spikes");
+
+            //setup your methods and other things here
+        }
     }
 }
 -(void)update:(CFTimeInterval)currentTime {
