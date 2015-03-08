@@ -95,6 +95,8 @@
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self setUserInteractionEnabled: NO];
+
     /* Called when a touch begins */
     CGPoint location = [[touches anyObject] locationInNode:self];
     location.x = location.x + _knife.size.width/2;
@@ -105,13 +107,13 @@
     SKAction *moveback = [SKAction moveTo:originLoc duration:0.2f];
     SKAction *action = [SKAction sequence:@[move, moveback]];
     
-    [_knife runAction:action completion:^{
+    [_knife runAction:action completion:^(void){
        // [self runAction:moveback];
-        [self setUserInteractionEnabled:NO];
-        if(CGPointEqualToPoint(_knife.position, originLoc))
-        {
+        //[self setUserInteractionEnabled:NO];
+        //if(CGPointEqualToPoint(_knife.position, originLoc))
+        //{
             [self setUserInteractionEnabled:YES];
-        }
+        //}
     }];;
    // [_knife runAction:moveback];
 
