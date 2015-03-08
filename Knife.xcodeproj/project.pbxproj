@@ -23,6 +23,11 @@
 		9872539F1AABD32200007DA9 /* hand2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9872539E1AABD32200007DA9 /* hand2.png */; };
 		987253A11AABD4FD00007DA9 /* hand3.png in Resources */ = {isa = PBXBuildFile; fileRef = 987253A01AABD4FD00007DA9 /* hand3.png */; };
 		987253A51AABFBDC00007DA9 /* knife1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 987253A41AABFBDC00007DA9 /* knife1.jpg */; };
+		98AE47441AAC2EA300A55E51 /* final_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 98AE47431AAC2EA300A55E51 /* final_icon.png */; };
+		98AE47461AAC2EA800A55E51 /* final_hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 98AE47451AAC2EA800A55E51 /* final_hand.png */; };
+		98AE47481AAC2EAC00A55E51 /* final_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 98AE47471AAC2EAC00A55E51 /* final_background.png */; };
+		98AE474A1AAC2EE900A55E51 /* knife2.png in Resources */ = {isa = PBXBuildFile; fileRef = 98AE47491AAC2EE900A55E51 /* knife2.png */; };
+		98AE474C1AAC2EF500A55E51 /* knife1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98AE474B1AAC2EF500A55E51 /* knife1.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +64,11 @@
 		9872539E1AABD32200007DA9 /* hand2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hand2.png; sourceTree = "<group>"; };
 		987253A01AABD4FD00007DA9 /* hand3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hand3.png; sourceTree = "<group>"; };
 		987253A41AABFBDC00007DA9 /* knife1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = knife1.jpg; sourceTree = "<group>"; };
+		98AE47431AAC2EA300A55E51 /* final_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = final_icon.png; sourceTree = "<group>"; };
+		98AE47451AAC2EA800A55E51 /* final_hand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = final_hand.png; sourceTree = "<group>"; };
+		98AE47471AAC2EAC00A55E51 /* final_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = final_background.png; sourceTree = "<group>"; };
+		98AE47491AAC2EE900A55E51 /* knife2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = knife2.png; sourceTree = "<group>"; };
+		98AE474B1AAC2EF500A55E51 /* knife1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = knife1.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,9 +117,14 @@
 				5B241FCC1AAAB5EA006039B1 /* GameScene.sks */,
 				5B241FCE1AAAB5EA006039B1 /* GameViewController.h */,
 				5B241FCF1AAAB5EA006039B1 /* GameViewController.m */,
+				98AE47471AAC2EAC00A55E51 /* final_background.png */,
+				98AE47451AAC2EA800A55E51 /* final_hand.png */,
+				98AE47431AAC2EA300A55E51 /* final_icon.png */,
+				98AE47491AAC2EE900A55E51 /* knife2.png */,
 				5B241FD11AAAB5EA006039B1 /* Main.storyboard */,
 				9872539C1AABD0C500007DA9 /* hand.png */,
 				9872539E1AABD32200007DA9 /* hand2.png */,
+				98AE474B1AAC2EF500A55E51 /* knife1.jpg */,
 				987253A01AABD4FD00007DA9 /* hand3.png */,
 				987253A41AABFBDC00007DA9 /* knife1.jpg */,
 				5B241FF11AAB8EA3006039B1 /* ground.png */,
@@ -234,11 +249,16 @@
 				5B241FF01AAB8B2A006039B1 /* knife.png in Resources */,
 				5B241FCD1AAAB5EA006039B1 /* GameScene.sks in Resources */,
 				5B241FD31AAAB5EA006039B1 /* Main.storyboard in Resources */,
+				98AE47481AAC2EAC00A55E51 /* final_background.png in Resources */,
+				98AE474C1AAC2EF500A55E51 /* knife1.jpg in Resources */,
 				9872539D1AABD0C500007DA9 /* hand.png in Resources */,
 				5B241FEE1AAB8790006039B1 /* hand.jpg in Resources */,
+				98AE47461AAC2EA800A55E51 /* final_hand.png in Resources */,
 				987253A11AABD4FD00007DA9 /* hand3.png in Resources */,
 				9872539F1AABD32200007DA9 /* hand2.png in Resources */,
 				987253A51AABFBDC00007DA9 /* knife1.jpg in Resources */,
+				98AE47441AAC2EA300A55E51 /* final_icon.png in Resources */,
+				98AE474A1AAC2EE900A55E51 /* knife2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

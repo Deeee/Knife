@@ -21,38 +21,45 @@
 -(void)didMoveToView:(SKView *)view {
 //    self.physicsWorld.gravity = CGVectorMake( 0.0, -5.0 );
     /* Setup your scene here */
-    SKTexture* handTexture = [SKTexture textureWithImageNamed:@"hand3.png"];
+    SKTexture* handTexture = [SKTexture textureWithImageNamed:@"final_hand.png"];
     handTexture.filteringMode = SKTextureFilteringNearest;
-    SKTexture* groundTexture = [SKTexture textureWithImageNamed:@"ground.png"];
+    SKTexture* groundTexture = [SKTexture textureWithImageNamed:@"final_background.png"];
     groundTexture.filteringMode = SKTextureFilteringNearest;
 
-    SKAction* moveGroundSprite = [SKAction moveByX:-groundTexture.size.width*2 y:0 duration:0.02 * groundTexture.size.width*2];
-    SKAction* resetGroundSprite = [SKAction moveByX:groundTexture.size.width*2 y:0 duration:0];
-    SKAction* moveGroundSpritesForever = [SKAction repeatActionForever:[SKAction sequence:@[moveGroundSprite, resetGroundSprite]]];
+//    SKAction* moveGroundSprite = [SKAction moveByX:-groundTexture.size.width*2 y:0 duration:0.02 * groundTexture.size.width*2];
+//    SKAction* resetGroundSprite = [SKAction moveByX:groundTexture.size.width*2 y:0 duration:0];
+//    SKAction* moveGroundSpritesForever = [SKAction repeatActionForever:[SKAction sequence:@[moveGroundSprite, resetGroundSprite]]];
     
-    SKTexture* knifeTexture = [SKTexture textureWithImageNamed:@"knife1.jpg"];
+    SKTexture* knifeTexture = [SKTexture textureWithImageNamed:@"knife2.png"];
     _knife = [SKSpriteNode spriteNodeWithTexture:knifeTexture];
-    [_knife setScale:0.5];
-    _knife.position = CGPointMake(self.frame.size.width / 4 + 400, CGRectGetMidY(self.frame));
+    [_knife setScale:0.23];
+    _knife.position = CGPointMake(self.frame.size.width / 4 + 400, self.frame.size.height / 200 + 730);
 //    _knife.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:_knife.size.height/2];
 //    _knife.physicsBody.dynamic = YES;
 //    _knife.physicsBody.allowsRotation = NO;
     
     
     _hand = [SKSpriteNode spriteNodeWithTexture:handTexture];
-    [_hand setScale:1.0];
+    [_hand setScale:0.7];
     _hand.position = CGPointMake(self.frame.size.width / 3.29 + 200, self.frame.size.height / 200 + 250);
-    _skyColor = [SKColor colorWithRed:113.0/255.0 green:197.0/255.0 blue:207.0/255.0 alpha:1.0];
-    [self setBackgroundColor:_skyColor];
     
-    for( int i = 0; i < 2 + self.frame.size.width / ( groundTexture.size.width * 2 ); ++i ) {
-        SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:groundTexture];
-        [sprite setScale:2.0];
-        sprite.position = CGPointMake(i * sprite.size.width, sprite.size.height / 2);
-        [sprite runAction:moveGroundSpritesForever];
-
-        [self addChild:sprite];
-    }
+    SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:groundTexture];
+    [sprite setScale:0.45];
+    sprite.position = CGPointMake(self.frame.size.width / 3.29 + 200, CGRectGetMidY(self.view.frame) + 100);
+    
+    [self addChild:sprite];
+    
+//    _skyColor = [SKColor colorWithRed:113.0/255.0 green:197.0/255.0 blue:207.0/255.0 alpha:1.0];
+//    [self setBackgroundColor:_skyColor];
+    
+//    for( int i = 0; i < 2 + self.frame.size.width / ( groundTexture.size.width * 2 ); ++i ) {
+//        SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:groundTexture];
+//        [sprite setScale:0.5];
+//        sprite.position = CGPointMake(i * sprite.size.width, sprite.size.height / 2);
+//        [sprite runAction:moveGroundSpritesForever];
+//
+//        [self addChild:sprite];
+//    }
     
     SKNode* dummy = [SKNode node];
     dummy.position = CGPointMake(0, groundTexture.size.height);
@@ -82,15 +89,16 @@
 }
 
 -(void)rotatingHand {
-    SKAction *rotatM2L = [SKAction rotateToAngle:0.5 duration:1];
-    SKAction *rotatL2R = [SKAction rotateToAngle:-0.5 duration:2];
-//    SKAction *rotatM2R = [SKAction rotateToAngle:0.5 duration:1];
-    SKAction *rotatR2M = [SKAction rotateToAngle:0.0 duration:1];
+    SKAction *rotatM2L = [SKAction rotateToAngle:0.58 duration:SKActionTimingEaseIn];
+    SKAction *rotatL2R = [SKAction rotateToAngle:-0.66 duration:SKActionTimingEaseIn];
+    SKAction *rotatR2M = [SKAction rotateToAngle:0.0 duration:SKActionTimingEaseIn];
     
     SKAction *rotateSeq = [SKAction sequence:@[rotatM2L, rotatL2R, rotatR2M]];
+    rotateSeq.timingMode = SKActionTimingEaseIn;
     
-    [_hand runAction:[SKAction repeatActionForever:
-                      rotateSeq] withKey:@"rotatingHand"];
+    [_hand runAction:[SKAction repeatActionForever:rotateSeq] withKey:@"rotatingHand"];
+
+    
     return;
 }
 
